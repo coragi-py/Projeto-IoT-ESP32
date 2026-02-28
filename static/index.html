@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador IoT ESP32</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <h1>Atividade IoT - DHT11</h1>
+
+  <div class="box">
+    <h2>DHT11 (simulador)</h2>
+
+    <div>Temperatura: <b><span id="temperatureVal">25</span>°C</b></div>
+    <input id="temperature" type="range" min="0" max="50" step="1" value="25">
+
+    <div>Umidade: <b><span id="humidityVal">55</span>%</b></div>
+    <input id="humidity" type="range" min="20" max="80" step="1" value="55">
+
+    <button id="btnRandom">Randomizer leitura</button>
+    <small id="statusRandom"></small>
+  </div>
+
+  <div class="box">
+    <h2>Status do relé</h2>
+
+    <label>
+      Ligar ventilador acima de:
+      <input id="limit" type="number" min="0" max="100" value="30"> °C
+    </label>
+
+    <div class="row">
+      <div>Relé: <b id="relay">OFF</b></div>
+      <div>Ventilador: <b id="fan">PARADO</b></div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>LEDs por faixa</h2>
+    <div class="row">
+      <span id="ledFrio" class="led"></span> Frio
+      <span id="ledOk" class="led"></span> OK
+      <span id="ledQuente" class="led"></span> Quente
+    </div>
+    <small>Faixas: &lt; 20°C (Frio), 20–32°C (OK), ≥ 33°C (Quente).</small>
+  </div>
+
+  <div class="box">
+    <h2>Histórico</h2>
+    <div id="log" class="log"></div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
